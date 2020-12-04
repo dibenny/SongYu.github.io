@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name='apple-mobile-web-app-capable' content='yes' />
+<meta name="format-detection" content="telephone=no" />
+<meta http-equiv='Content-Type' content='textml;charset=UTF-8' />
+<title>移动端</title>
+<style>
+    *{
+  padding: 0;
+  margin: 0;
+}
+#slideshow{
+  background-color: blanchedalmond;
+  margin: 0 auto;/*  设置在页面水平居中 */
+  z-index:-1;
+}
+#slideshow img{
+  width: 100%;
+  height: 100%;
+  position: absolute; /*图片采取绝对定位，均位于左上角，重叠在一起*/
+  top: 0;
+  left: 0;
+  opacity: 0; /*初始不透明度为0，图片都看不见*/
+  transition: opacity 2s linear; /*--重点--定义一个关于透明度的transition*/
+  z-index:-1;
+}
+#slideshow img.active{
+  opacity: 1; /*有active类的图片不透明度为1，即显示图片*/
+  
+}
+
+
+</style>
+</head>
+<body>    
+<div id="slideshow">
+  <!-- 插入轮播的图片们 -->
+  <img class="active" src="https://lh5.googleusercontent.com/proxy/borw31AV1gFbRSu57SnxUB4rYPQxfgIcj-Q100kFVeFSJVnZ8Fh2_IMgOpD3aszKs8Al7uoXvk22c9eXsm7n38S69z4VpCJyAbzO8ULhkEM=w3840-h2160-p-k-no-nd-mv" />
+  <img class="active" src="https://lh5.googleusercontent.com/proxy/tjJRG8ELyrHCJQ18ThdF1ybYJ9CP1q6jDyCAECruLxqefc2gvH9YYUjKItQyvmWClmOoC3XivqciC7PbY2-1NtWxLE7fNsJFqYflxTi2EyE=w3840-h2160-p-k-no-nd-mv" /> 
+  <img class="active" src="https://lh5.googleusercontent.com/proxy/Dm41Zdz8s5TnQcIRSCnAXUvHItsB67S7U3DytjCwsIpG9SmJKsVkkBRCK0ODmevy_M47-2CSAxGzFaiJM3bHaPfVT90Fm6lBbNd2yueqMg=w3840-h2160-p-k-no-nd-mv" />
+    <!-- <img class="active" src="./Images/avatar.png" /> -->
+</div>
+<div id='text'>
+  <h1>123123123123123</h1>
+</div>
+<script>
+    //---------主角：轮播图函数-------------
+function slideshow() {
+  var slideshow=document.getElementById("slideshow"),
+  imgs=slideshow.getElementsByTagName("img"), //得到图片们
+
+  current=0; //current为当前活跃的图片编号
+  function slideOff() {
+    imgs[current].className=""; //图片淡出
+  }
+  function slideOn() {
+    imgs[current].className="active"; //图片淡入
+  }
+  function changeSlide() { //切换图片的函数
+    slideOff();
+    current++; //自增1
+    if(current>=imgs.length) current=0;
+    slideOn();
+  }
+
+  //每2s调用changeSlide函数进行图片轮播
+  var slideon=setInterval(changeSlide,4000);
+
+}
+
+slideshow();
+</script>
+</body>
+</html>
