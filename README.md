@@ -1,2 +1,2 @@
-# SongYu.github.io
-SongYu的个人博客
+# Song-Yu.github.io
+Song - mou ren 的个人博客
