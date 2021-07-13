@@ -9,7 +9,7 @@
     /* background: url('https://lh5.googleusercontent.com/proxy/borw31AV1gFbRSu57SnxUB4rYPQxfgIcj-Q100kFVeFSJVnZ8Fh2_IMgOpD3aszKs8Al7uoXvk22c9eXsm7n38S69z4VpCJyAbzO8ULhkEM=w3840-h2160-p-k-no-nd-mv') no-repeat; */
     background-size:cover;
     position: absolute;
-    background-color: #FCCCAF;
+    background-color: #FFEBEE;
     /* overflow: hidden; */
 }
 #mySelf{
@@ -27,9 +27,9 @@
     margin-left: 50px;
 }
 #headText{
-    margin-left: 30px;
+    /* margin-left: 30px;
     margin: 50px;
-    display: inline-block;
+    display: inline-block; */
 }
 #box{
     width:250px;
