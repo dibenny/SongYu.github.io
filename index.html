@@ -1,98 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎</title>
-    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
-    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
-    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
-    <link rel="icon" href="./Images/avatar.png" type="image/x-icon"/>
-    <link rel="stylesheet" type="text/css" href="./Css/index.css" /> 
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" /> -->
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0-100猜数字</title>
     <style>
-        #heart{
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-        #headText{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction:column;
-            width: 100%;
-            margin-bottom: 300px;
-        }
+      #app {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      #tips {
+        color: red;
+      }
     </style>
-</head>
-<body id="heart">
-    <div id="mySelf">
-        <!-- <div id="head"></div> -->
-        <div id="headText">
-            <div>
-                <h3 style="color: #FD160B;">你好哇</h3>
-            </div>
-            <br/>
-            <div>
-                <h3 style="color: #FD160B;">小汪同学</h3>
-            </div>
-            <br/>
-            <div>
-                <h3 style="color: #FD160B;">普通小孩，热爱生活😊</h3>
-            </div>
-            <br/>
-            <div>
-                <h3 style="color: #FD160B;">㊗️🐂气冲天</h3>
-            </div>
-            <br/>
-            <div>
-                <h3 style="color: #FD160B;">永远有💰</h3>
-            </div>
-            <br/>
-            <div>
-                <h3 style="color: #FD160B;">笑😄常开</h3>
-            </div>
-        </div>
-        <!-- <div id="fatherBox">
-            <div id="box" >
-                  <div class="circular"></div>
-                  <div class="workText">
-                    <a>工作职位</a>
-                    <h2>前端工程师</h2>
-                    <a>详情 >></a>
-                    <a  href="./JS/index.html" target="_blank">详情>></a>
-                  </div>
-            </div>
-            <div id="box">
-               <div class="circular"></div>
-                 <div class="workText">
-                    <a>个人经历</a>
-                    <h2>做自己爱好的事</h2>
-                    <a>详情 >></a>
-                    <a  href="./JS/index.html" target="_blank">详情>></a>
-                 </div>
-               </div>
-            <div id="box">
-                <div class="circular"></div>
-                <div class="workText">
-                 <a>兴趣所向</a>
-                 <h2>旅游、读书、运动</h2>
-                 <a>详情 >></a>
-                 <a  href="./JS/index.html" target="_blank">详情>></a>
-                </div>
-            </div>
-            <div id="box">
-                <div class="circular"></div>
-                <div class="workText">
-                 <a>关于我想</a>
-                 <h2>我想...</h2>
-                 <a>详情 >></a>
-                 <a  href="./JS/index.html" target="_blank">详情>></a>
-                </div>
-            </div>
-         </div>
-    </div> -->
-    <!-- <div>这是我第一个文件</div> -->
-</body>
+  </head>
+  <body>
+    <div id="app">
+      <h1>0-500猜数字</h1>
+      <p>请输入0-500的数字</p>
+      <input id="value" type="text" />
+      <button onclick="isTrue()">确定</button>
+      <p id="tips"></p>
+    </div>
+    <script>
+      var random = Math.floor(Math.random() * 501);
+      console.log(random);
+      function isTrue() {
+        var value = document.getElementById("value").value;
+        var tips = document.getElementById("tips");
+        if (0 < value && value > 500) {
+          tips.innerHTML = "请输入0-500的数字";
+          return;
+        }
+        if (random < value) {
+          tips.innerHTML = "小汪，你输入的数字大啦！";
+        } else if (random > value) {
+          tips.innerHTML = "小汪，你输入的数字小啦！";
+        } else {
+          tips.innerHTML = "恭喜你猜中啦！！！！";
+        }
+      }
+    </script>
+  </body>
 </html>

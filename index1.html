@@ -1,76 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<meta name='apple-mobile-web-app-capable' content='yes' />
-<meta name="format-detection" content="telephone=no" />
-<meta http-equiv='Content-Type' content='textml;charset=UTF-8' />
-<title>移动端</title>
-<style>
-    *{
-  padding: 0;
-  margin: 0;
-}
-#slideshow{
-  background-color: blanchedalmond;
-  margin: 0 auto;/*  设置在页面水平居中 */
-  z-index:-1;
-}
-#slideshow img{
-  width: 100%;
-  height: 100%;
-  position: absolute; /*图片采取绝对定位，均位于左上角，重叠在一起*/
-  top: 0;
-  left: 0;
-  opacity: 0; /*初始不透明度为0，图片都看不见*/
-  transition: opacity 2s linear; /*--重点--定义一个关于透明度的transition*/
-  z-index:-1;
-}
-#slideshow img.active{
-  opacity: 1; /*有active类的图片不透明度为1，即显示图片*/
-  
-}
-
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <link rel="icon" href="./Images/avatar.png" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="./Css/index.css" /> 
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" /> -->
+    <style>
+        #heart{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        #headText{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction:column;
+            width: 100%;
+            margin-bottom: 300px;
+        }
+    </style>
 </head>
-<body>    
-<div id="slideshow">
-  <!-- 插入轮播的图片们 -->
-  <img class="active" src="https://lh5.googleusercontent.com/proxy/borw31AV1gFbRSu57SnxUB4rYPQxfgIcj-Q100kFVeFSJVnZ8Fh2_IMgOpD3aszKs8Al7uoXvk22c9eXsm7n38S69z4VpCJyAbzO8ULhkEM=w3840-h2160-p-k-no-nd-mv" />
-  <img class="active" src="https://lh5.googleusercontent.com/proxy/tjJRG8ELyrHCJQ18ThdF1ybYJ9CP1q6jDyCAECruLxqefc2gvH9YYUjKItQyvmWClmOoC3XivqciC7PbY2-1NtWxLE7fNsJFqYflxTi2EyE=w3840-h2160-p-k-no-nd-mv" /> 
-  <img class="active" src="https://lh5.googleusercontent.com/proxy/Dm41Zdz8s5TnQcIRSCnAXUvHItsB67S7U3DytjCwsIpG9SmJKsVkkBRCK0ODmevy_M47-2CSAxGzFaiJM3bHaPfVT90Fm6lBbNd2yueqMg=w3840-h2160-p-k-no-nd-mv" />
-    <!-- <img class="active" src="./Images/avatar.png" /> -->
-</div>
-<div id='text'>
-  <h1>123123123123123</h1>
-</div>
-<script>
-    //---------主角：轮播图函数-------------
-function slideshow() {
-  var slideshow=document.getElementById("slideshow"),
-  imgs=slideshow.getElementsByTagName("img"), //得到图片们
-
-  current=0; //current为当前活跃的图片编号
-  function slideOff() {
-    imgs[current].className=""; //图片淡出
-  }
-  function slideOn() {
-    imgs[current].className="active"; //图片淡入
-  }
-  function changeSlide() { //切换图片的函数
-    slideOff();
-    current++; //自增1
-    if(current>=imgs.length) current=0;
-    slideOn();
-  }
-
-  //每2s调用changeSlide函数进行图片轮播
-  var slideon=setInterval(changeSlide,4000);
-
-}
-
-slideshow();
-</script>
+<body id="heart">
+    <div id="mySelf">
+        <!-- <div id="head"></div> -->
+        <div id="headText">
+            <div>
+                <h3 style="color: #FD160B;">你好哇</h3>
+            </div>
+            <br/>
+            <div>
+                <h3 style="color: #FD160B;">小汪同学</h3>
+            </div>
+            <br/>
+            <div>
+                <h3 style="color: #FD160B;">普通小孩，热爱生活😊</h3>
+            </div>
+            <br/>
+            <div>
+                <h3 style="color: #FD160B;">㊗️🐂气冲天</h3>
+            </div>
+            <br/>
+            <div>
+                <h3 style="color: #FD160B;">永远有💰</h3>
+            </div>
+            <br/>
+            <div>
+                <h3 style="color: #FD160B;">笑😄常开</h3>
+            </div>
+        </div>
+        <!-- <div id="fatherBox">
+            <div id="box" >
+                  <div class="circular"></div>
+                  <div class="workText">
+                    <a>工作职位</a>
+                    <h2>前端工程师</h2>
+                    <a>详情 >></a>
+                    <a  href="./JS/index.html" target="_blank">详情>></a>
+                  </div>
+            </div>
+            <div id="box">
+               <div class="circular"></div>
+                 <div class="workText">
+                    <a>个人经历</a>
+                    <h2>做自己爱好的事</h2>
+                    <a>详情 >></a>
+                    <a  href="./JS/index.html" target="_blank">详情>></a>
+                 </div>
+               </div>
+            <div id="box">
+                <div class="circular"></div>
+                <div class="workText">
+                 <a>兴趣所向</a>
+                 <h2>旅游、读书、运动</h2>
+                 <a>详情 >></a>
+                 <a  href="./JS/index.html" target="_blank">详情>></a>
+                </div>
+            </div>
+            <div id="box">
+                <div class="circular"></div>
+                <div class="workText">
+                 <a>关于我想</a>
+                 <h2>我想...</h2>
+                 <a>详情 >></a>
+                 <a  href="./JS/index.html" target="_blank">详情>></a>
+                </div>
+            </div>
+         </div>
+    </div> -->
+    <!-- <div>这是我第一个文件</div> -->
 </body>
 </html>
